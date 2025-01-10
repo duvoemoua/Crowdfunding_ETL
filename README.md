@@ -41,11 +41,30 @@ contact_info_df = pd.read_excel('Resources/contacts.xlsx', header=3)
 
 Create the Contacts DataFrame
 
+
 Option 1: Use Pandas to create the contacts DataFrame
 
 Again this portion I worked on with my group and it was super helpful to see the methods of getting the json data. To iterate I used the iterrows() function to iterate through my index of x through each row in contact_info_df. I stored that data into a data_rows variable and used the json.loads function to parse through the data starting with the first row using row.iloc[0]. I then appended the provided dictionary with my variable data_rows and used the list and value functions to convert the extracted data into a list. 
 
-I then created the columns 'contact_id', 'name', and 'email' to store the data and created a new dataframe contact_info. I checked the datatypes with dtypes. 
+I then created a columns variable to hold the columns 'contact_id', 'name', and 'email'. After that I created a new dataframe contact_info and checked the datatypes with dtypes. 
+
+To create a "first"name" and "last_name" column from the 'name' column i used the split function to split on the space between the first and last name. I then used the drop function to drop the 'name' column and created a new dataframe called contacts_df_clean and reordered the columns. 
+
+
+Option 2: Use regex to create the contacts DataFrame.
+
+Referencing the Regex_groups_solution from class, to extract the four-digit contact ID number I created a regex pattern varible 'p'. In my variable I extracted the 4 digits after contact_id with p = r'"contact_id": (\d{4})'.
+I then used the extract function and used my variable to extract the contact_id number and put it into its own 'contact_id' column.
+
+Following the same pattern I created a 'p' variable and extracted 'name' with p = r'"name": "([^"]*)"' and extracted 'email' with p = r'"email": "([^"]*)"'. 
+
+Following the same process above I split name into first_name and last _name and dropped columns that werent needed as well as reordered the columns in my new dataframe.
+
+Once that was all finished I exported my dataframe into a new CSV file. 
+
+
+
+
 
 
 
