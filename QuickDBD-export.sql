@@ -1,10 +1,7 @@
---Drop table if exists
-DROP TABLE IF EXISTS campaign;
-DROP TABLE IF EXISTS category;
-DROP TABLE IF EXISTS subcategory;
-DROP TABLE IF EXISTS contacts;
+﻿-- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
+-- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
 
---CREATE CAMPAIGN TABLE
+
 CREATE TABLE "campaign" (
     "cf_id" int   NOT NULL,
     "contact_id" int   NOT NULL,
@@ -27,7 +24,6 @@ CREATE TABLE "campaign" (
      )
 );
 
---CREATE CATEGORY TABLE
 CREATE TABLE "category" (
     "category_id" VARCHAR   NOT NULL,
     "category" VARCHAR   NOT NULL,
@@ -36,7 +32,6 @@ CREATE TABLE "category" (
      )
 );
 
---CREATE SUBCATEGORY TABLE
 CREATE TABLE "subcategory" (
     "subcategory_id" VARCHAR   NOT NULL,
     "subcategory" VARCHAR   NOT NULL,
@@ -45,7 +40,6 @@ CREATE TABLE "subcategory" (
      )
 );
 
---CREATE CONTACTS TABLE
 CREATE TABLE "contacts" (
     "contact_id" int   NOT NULL,
     "first_name" VARCHAR   NOT NULL,
@@ -55,3 +49,16 @@ CREATE TABLE "contacts" (
         "contact_id","first_name","last_name","email"
      )
 );
+
+ALTER TABLE "campaign" ADD CONSTRAINT "fk_campaign_category" FOREIGN KEY("category")
+REFERENCES "category" ("category");
+
+ALTER TABLE "campaign" ADD CONSTRAINT "fk_campaign_subcategory_subcategory_id" FOREIGN KEY("subcategory", "subcategory_id")
+REFERENCES "subcategory" ("subcategory", "subcategory_id");
+
+ALTER TABLE "category" ADD CONSTRAINT "fk_category_category_id" FOREIGN KEY("category_id")
+REFERENCES "campaign" ("category_id");
+
+ALTER TABLE "contacts" ADD CONSTRAINT "fk_contacts_contact_id" FOREIGN KEY("contact_id")
+REFERENCES "campaign" ("contact_id");
+
