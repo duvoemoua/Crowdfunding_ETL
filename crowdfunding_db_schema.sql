@@ -27,8 +27,6 @@ CREATE TABLE "campaign" (
      )
 );
 
-SELECT * FROM campaign;
-
 --CREATE CATEGORY TABLE
 CREATE TABLE "category" (
     "category_id" VARCHAR   NOT NULL,
@@ -38,8 +36,6 @@ CREATE TABLE "category" (
      )
 );
 
-SELECT * FROM category;
-
 --CREATE SUBCATEGORY TABLE
 CREATE TABLE "subcategory" (
     "subcategory_id" VARCHAR   NOT NULL,
@@ -48,10 +44,6 @@ CREATE TABLE "subcategory" (
         "subcategory_id","subcategory"
      )
 );
-
-
-SELECT * FROM subcategory;
-
 
 --CREATE CONTACTS TABLE
 CREATE TABLE "contacts" (
@@ -64,8 +56,6 @@ CREATE TABLE "contacts" (
      )
 );
 
-SELECT * FROM contacts;
-
 ALTER TABLE "campaign" ADD CONSTRAINT "fk_campaign_category" FOREIGN KEY("category")
 REFERENCES "category" ("category");
 
@@ -77,4 +67,3 @@ REFERENCES "campaign" ("category_id");
 
 ALTER TABLE "contacts" ADD CONSTRAINT "fk_contacts_contact_id" FOREIGN KEY("contact_id")
 REFERENCES "campaign" ("contact_id");
-
