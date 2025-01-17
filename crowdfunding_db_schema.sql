@@ -22,7 +22,7 @@ CREATE TABLE "campaign" (
     "subcategory" VARCHAR   NOT NULL,
     "category_id" VARCHAR   NOT NULL,
     "subcategory_id" VARCHAR   NOT NULL,
-    CONSTRAINT "pk_campaign" PRIMARY KEY (
+    constraint "pk_campaign" PRIMARY KEY (
         "cf_id","contact_id","company_name","category","subcategory","category_id","subcategory_id"
      )
 );
@@ -31,7 +31,7 @@ CREATE TABLE "campaign" (
 CREATE TABLE "category" (
     "category_id" VARCHAR   NOT NULL,
     "category" VARCHAR   NOT NULL,
-    CONSTRAINT "pk_category" PRIMARY KEY (
+    constraint "pk_category" PRIMARY KEY (
         "category_id","category"
      )
 );
@@ -40,7 +40,7 @@ CREATE TABLE "category" (
 CREATE TABLE "subcategory" (
     "subcategory_id" VARCHAR   NOT NULL,
     "subcategory" VARCHAR   NOT NULL,
-    CONSTRAINT "pk_subcategory" PRIMARY KEY (
+    constraint "pk_subcategory" PRIMARY KEY (
         "subcategory_id","subcategory"
      )
 );
@@ -51,7 +51,7 @@ CREATE TABLE "contacts" (
     "first_name" VARCHAR   NOT NULL,
     "last_name" VARCHAR   NOT NULL,
     "email" VARCHAR   NOT NULL,
-    CONSTRAINT "pk_contacts" PRIMARY KEY (
+    constraint "pk_contacts" PRIMARY KEY (
         "contact_id","first_name","last_name","email"
      )
 );
