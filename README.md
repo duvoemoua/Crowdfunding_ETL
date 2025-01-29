@@ -64,7 +64,22 @@ Once that was all finished I exported my dataframe into a new CSV file.
 
 
 
+Creating Crowdfunding_DB
 
+To create the crowd funding DB I first created database diagram using the each csv file exported from my code. I created a contacts table with contact_id as a primary key, a category table with category_id as a primary key, a subcategory table with subcategory_id as a primary key, and finally a campaign table with cf_id as a primary key and contact_id, category_id, and subcategory_id as foreign keys. 
+
+To create my database I started by dropping my tables if they already existed:
+
+--Drop table if exists
+DROP TABLE IF EXISTS campaign;
+DROP TABLE IF EXISTS category;
+DROP TABLE IF EXISTS subcategory;
+DROP TABLE IF EXISTS contacts;
+
+
+Then using my database diagram created I created each table starting with contacts and ending with campaign. I ran all of my code besides the SELECT statements to create my tables.
+
+Finally I imported each csv to its corresponding table starting with contacts and ending with campaign to ensure that each primary key was in place for the campaign table to reference to. From there I could run each select statement to see each table
 
 
 
